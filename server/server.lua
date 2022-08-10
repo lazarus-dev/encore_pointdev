@@ -8,7 +8,7 @@ function mathRound(value, numDecimalPlaces)
         return math.floor((value * power) + 0.5) / (power)
     else
         return math.floor(value + 0.5)
-    end
+    end 
 end
 
 --
@@ -20,10 +20,14 @@ AddEventHandler('encore_pointdev:points', function(points)
     local textString = ''
 
     for k,v in pairs(points) do
-        textString = textString .. ("vector3(%s, %s, %s),\n"):format(
+        textString = textString .. ("vector3(%s, %s, %s);vector4(%s, %s, %s, %s),\n"):format(
             mathRound(v.x, 2),
             mathRound(v.y, 2),
-            mathRound(v.z, 2)
+            mathRound(v.z, 2),
+            mathRound(v.x, 2),
+            mathRound(v.y, 2),
+            mathRound(v.z, 2),
+            mathRound(v.w, 2)
         )
     end
 
